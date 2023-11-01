@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>高齢者ハッカーズ</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+        h1 {
+            margin: 0;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+        }
+        .main-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        .bio {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>高齢者ハッカーズ</h1>
+    </header>
+
+    <div class="container">
+        <div class="main-content">
+            <h2>自己紹介</h2>
+            <p class="bio">私の名前は〇〇です。趣味は◯◯や△△です。</p>
+
+            <h2>経歴</h2>
+            <p>ここに経歴や学歴などを追加してください。</p>
+
+            <h2>お問い合わせ</h2>
+            <p>ご質問や連絡は、メールアドレス：example@example.com までお気軽にどうぞ。</p>
+        </div>
+    </div>
+
+</body>
+</html>
