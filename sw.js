@@ -3,10 +3,6 @@
 //---------------------------------------------------------
 //キャッシュの名前
 const CACHE_NAME = 'koureisya_hacker_pwa';
-//キャッシュバージョン
-const CACHE_VERSION = "2023.11.3";
-//キャッシュキーを作る
-const CACHE_KEY = `${CACHE_NAME}:${CACHE_VERSION}`;
 //キャッシュ対象のファイルを選択（スコープからの相対パス）
 const CACHE_FILES = [
     './',
@@ -23,7 +19,7 @@ self.addEventListener('install',(event) =>{
     //イベントの完了を処理が成功するまで遅延
     event.waitUntil(
         //cacheStorageの中に指定したCACHE_KEYのcacheを新しく作成して開く
-        caches.open(CACHE_KEY).then((cache) => {
+        caches.open(CACHE_NAME).then((cache) => {
             //パスの一覧を渡してcacheに追加する
             return cache.addAll(CACHE_FILES);
         })
@@ -44,26 +40,4 @@ self.addEventListener('fetch', (event) => {
         return response ? response : fetch(event.request);
       })
   );
-});
-
-
-//-------------------------------------------------------------
-//                  有効化（起動？）した時の処理
-//-------------------------------------------------------------
-//起動した時の処理
-self.addEventListener('activate',function(event) {
-    //イベントの完了を処理が成功するまで遅延
-    event.waitUntil(
-        //
-        caches.keys().then(function(cacheKey) {
-            return Promise.all(
-                cacheKey.filter(function(cacheKey) {
-                    const [cacheName, cacheVersion] = cacheKey.split(':');
-                    return cacheName == CACHE_NAME && cacheVersion != CACHE_VERSION;
-                }).map(function(cacheKey) {
-                    return caches.delete(cacheKey);
-                })
-            );
-        })
-    );
 });
