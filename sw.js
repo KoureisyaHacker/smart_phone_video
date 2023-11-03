@@ -34,36 +34,17 @@ self.addEventListener('install',(event) =>{
 
 //---------------------------------------------------------------
 //                  リクエストに対する処理
-//          キャッシュに無ければネットに探しに行く
 //---------------------------------------------------------------
 
-//キャッシュ対象ファイルかどうかを判定
-const isTargetFile = function(url){
-    return CACHE_FILES.indexOf(new URL(url).pathname) >= 0;
-};
-
-//リクエストに対してデータを探す処理
-self.addEventListener('fetch',(event) => {
-    //レスポンスを宣言
-    event.respondWith(
-        caches.open(CACHE_KEY).then(function(cache){
-            //cache内にリクエストに対するキャッシュが存在するか確認する
-            caches.match(event.request).then((response) => {
-                //もしキャッシュがあればそれを返す。
-                if (response) return response;
-                //もしなければネットに取得しに行く
-                return fetch(event.request).then(function(response){
-                    //キャッシュ対象のファイルでキャッシュすべきレスポンスだったらキャッシュする
-                    if (isTargetFile(event.request.url) && response.ok) {
-                        cache.put(event.request, response.clone());
-                    }
-                    return response;
-                }); 
-            });
-        })
-    );
+self.addEventListener('fetch', (event) => {
+  event.respondWith(
+    caches
+      .match(event.request)
+      .then((response) => {
+        return response ? response : fetch(event.request);
+      })
+  );
 });
-
 
 
 //-------------------------------------------------------------
