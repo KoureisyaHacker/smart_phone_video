@@ -1,8 +1,8 @@
 {
     "name" : "smart_phone_video",
     "short_name" : "smart_phone_video",
-    "theme_color" : "#ffe4b5",
-    "background_color" : "#ffe4b5",
+    "theme_color" : "#2196f3",
+    "background_color" : "#2196f3",
     "display" : "standalone",
     "start_url" : "./index.html",
     "icons" : [
