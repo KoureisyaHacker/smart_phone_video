@@ -1,43 +1,49 @@
 <!DOCTYPE html>
-<html>
-    <!--このページはアプリのホーム画面になる予定-->
-    <!--その他のページは'./pages','./css',画像は'./images'に入れてください-->
-    <head>
-        <meta charset="utf-8">
-        <!--マニュフェストファイルの呼び出し-->
-        <link rel="manifest" href="./manifest.json">
-        
-        <title>高齢者向けの動画アプリ</title>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>スマートフォンの使い方ガイド</title>
+</head>
+<body>
 
-    </head>
-    <body>
-        <h1>
-            <!--この行はテストで入れているので消してよい-->
-            高齢者ハッカー
-        </h1>
-        <!--Service Workerの呼び出し-->
-        <script>
-            if ('serviceWorker' in navigator){
-                navigator.serviceWorker.getRegistration()
-                    .then(registration => {
-                        const firstRegistration = (registration === undefined);
-                        navigator.serviceWorker.register('sw.js')
-                        .then(registration => {
-                            if(!firstRegistration){
-                                registration.addEventListener('updatefound',() => {
-                                    const installingWorker = registration.installing;
-                                    if(installingWorker != null){
-                                        installingWorker.onstatechange = e =>{
-                                            if(e.target.state == 'installed'){
-                                                alert('ページの更新がありました。アプリを再起動してください。');
-                                            }
-                                        };
-                                    }
-                                });
-                            }
-                        });
-                    });
-            }
-        </script>
-    </body>
+  <header>
+    <h1>スマートフォンの使い方ガイド</h1>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="#getting-started">はじめに</a></li>
+      <li><a href="#basic-functions">基本機能</a></li>
+      <li><a href="#apps">アプリの使い方</a></li>
+      <li><a href="#settings">設定</a></li>
+    </ul>
+  </nav>
+
+  <section id="getting-started">
+    <h2>はじめに</h2>
+    <p>スマートフォンの基本的な使い方について学ぶことで、便利な機能を活用しやすくなります。</p>
+  </section>
+
+  <section id="basic-functions">
+    <h2>基本機能</h2>
+    <p>電話のかけ方、メッセージの送り方など、基本的なスマートフォンの機能をマスターしましょう。</p>
+  </section>
+
+  <section id="apps">
+    <h2>アプリの使い方</h2>
+    <p>写真を撮る、メールをチェックするなど、便利なアプリの使い方を解説します。</p>
+  </section>
+
+  <section id="settings">
+    <h2>設定</h2>
+    <p>スマートフォンの設定を調整して、使いやすくカスタマイズしましょう。</p>
+  </section>
+
+  <footer>
+    <p>&copy; 2023 スマートフォンの使い方ガイド</p>
+  </footer>
+
+</body>
 </html>
