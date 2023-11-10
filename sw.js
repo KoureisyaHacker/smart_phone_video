@@ -31,7 +31,6 @@ self.addEventListener('install',(event) =>{
 });
 
 
-
 //---------------------------------------------------------------
 //                  リクエストに対する処理
 //---------------------------------------------------------------
@@ -46,9 +45,9 @@ self.addEventListener('fetch', (event) => {
   );
 });
 
-if (registration) {
-  registration.addEventListener("updatefound", () => {
-    console.log("サービスワーカーの更新版が見つかりました。");
-    registration.update();
-  });
-}
+//if (registration) {
+//  registration.addEventListener("updatefound", () => {
+//    console.log("サービスワーカーの更新版が見つかりました。");
+//
+//  });
+//}
