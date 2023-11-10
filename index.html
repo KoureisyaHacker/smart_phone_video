@@ -18,11 +18,25 @@
         <!--Service Workerの呼び出し-->
         <script>
             if ('serviceWorker' in navigator){
-                navigator.serviceWorker.register('./sw.js').then(registration => {
-                    console.log('ServiceWorker registration successful.');
-                }).catch(err => {
-                    console.log('ServiceWorker registration failed.');
-                });
+                navigator.serviceWorker.getRegistration()
+                    .then(registration => {
+                        const firstRegistration = (registration === undefined);
+                        navigator.serviceWorker.register('sw.js')
+                        .then(registration => {
+                            if(!firstRegistration){
+                                registration.addEventListener('updatefound',() => {
+                                    const installingWorker = registration.installing;
+                                    if(installingWorker != null){
+                                        installingWorker.onstatechange = e =>{
+                                            if(e.target.state == 'installed'){
+                                                alert('ページの更新がありました。アプリを再起動してください。');
+                                            }
+                                        };
+                                    }
+                                });
+                            }
+                        });
+                    });
             }
         </script>
     </body>
