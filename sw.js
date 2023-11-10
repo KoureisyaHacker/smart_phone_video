@@ -4,7 +4,7 @@
 //キャッシュの名前
 const CACHE_NAME = 'koureisya_hacker_pwa';
 //キャッシュ対象のファイルを選択（スコープからの相対パス）
-const CACHE_VERSION = '2023.11.10.2';
+const CACHE_VERSION = '2023.11.10.3';
 const CACHE_KEY = CACHE_NAME + '.' + CACHE_VERSION;
 const CACHE_FILES = [
     './',
@@ -17,6 +17,8 @@ const CACHE_FILES = [
 //---------------------------------------------------------------
 //                     インストール時の処理
 //---------------------------------------------------------------
+
+
 self.addEventListener('install',(event) =>{
     //イベントの完了を処理が成功するまで遅延
     event.waitUntil(
