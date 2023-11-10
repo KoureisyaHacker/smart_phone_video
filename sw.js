@@ -4,7 +4,7 @@
 //キャッシュの名前
 const CACHE_NAME = 'koureisya_hacker_pwa';
 //キャッシュ対象のファイルを選択（スコープからの相対パス）
-const CACHE_VERSION = '2023.11.10.1';
+const CACHE_VERSION = '2023.11.10.2';
 const CACHE_KEY = CACHE_NAME + '.' + CACHE_VERSION;
 const CACHE_FILES = [
     './',
