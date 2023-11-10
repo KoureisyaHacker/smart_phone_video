@@ -1,28 +1,4 @@
-body {
-  font-family: 'Arial', sans-serif;
-  margin: 0;
-  padding: 0;
-}
-
-header {
-  background-color: #4CAF50;
-  color: white;
-  text-align: center;
-  padding: 1em;
-}
-
-nav {
-  background-color: #333;
-  color: white;
-  text-align: center;
-  padding: 0.5em;
-}
-
-nav ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
+/* 既存のスタイル */
 
 nav li {
   display: inline;
@@ -34,16 +10,27 @@ nav a {
   color: white;
 }
 
-section {
-  padding: 20px;
+/* 新しく追加したスタイル */
+
+nav a:hover {
+  text-decoration: underline;
 }
 
-footer {
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px; /* メニューバーの高さを調整 */
   background-color: #333;
-  color: white;
-  text-align: center;
-  padding: 1em;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
+}
+
+nav li {
+  margin: 0 15px;
+}
+
+section {
+  padding: 20px;
 }
