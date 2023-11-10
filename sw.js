@@ -4,6 +4,8 @@
 //キャッシュの名前
 const CACHE_NAME = 'koureisya_hacker_pwa';
 //キャッシュ対象のファイルを選択（スコープからの相対パス）
+const CACHE_VERSION = '2023.11.10.1';
+const CACHE_KEY = CACHE_NAME + '.' + CACHE_VERSION;
 const CACHE_FILES = [
     './',
     './index.html'
@@ -19,7 +21,7 @@ self.addEventListener('install',(event) =>{
     //イベントの完了を処理が成功するまで遅延
     event.waitUntil(
         //cacheStorageの中に指定したCACHE_KEYのcacheを新しく作成して開く
-        caches.open(CACHE_NAME).then((cache) => {
+        caches.open(CACHE_KEY).then((cache) => {
             //パスの一覧を渡してcacheに追加する
             return cache.addAll(CACHE_FILES);
         })
