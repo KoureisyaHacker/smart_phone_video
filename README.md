@@ -2,7 +2,9 @@
 
 ## index.html
 使用エンコーディング：utf-8
+
 manifest.jsonの呼び出し
+
 service workerの呼び出し
 
 ## manifest.json
