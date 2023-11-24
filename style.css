@@ -1,0 +1,215 @@
+@charset "UTF-8";
+
+/* すべてのWebページに適用される */
+html {
+    font-family: sans-serif;
+}
+html * {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0 0 0 0;
+    background-color: cornsilk;
+}
+.wrapper {
+    margin: 0 auto 0 auto;
+}
+
+.navigation {
+    border: 2px solid black;
+    height: 100vh;
+    width: 70px;
+    position: relative;
+    background-color: #4e4c86;
+    box-shadow: 10px 0 0 #c77946;
+    border-left: 10px solid #4d4c86;
+    overflow-x: hidden;
+    transition: all 0.5s;
+}
+
+.navigation:hover {
+    width: 300px;
+}
+
+.navigation ul {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding-top: 20px;
+    padding-left: 10px;
+}
+
+.navigation ul li {
+    list-style: none;
+    display: block;
+    width: 100%;
+    position: relative;
+    border-radius: 15px;
+}
+
+.navigation ul li:hover {
+    background-color: #353463;
+}
+
+.navigation ul li.active {
+    background-color: #c77946;
+
+}
+
+.navigation ul li.active::before {
+    content: "";
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: -30px;
+    right: 0;
+    border-radius: 50%;
+    box-shadow: 15px 15px 0 #c77946;
+}
+
+.navigation ul li.active::after {
+    content: "";
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: 60px;
+    right: 0;
+    border-radius: 50%;
+    box-shadow: 15px -15px 0 #c77946;
+}
+
+.navigation ul li a {
+    text-decoration: none;
+    color: white;
+    width: 100%;
+    display: flex;
+    position: relative;
+}
+
+.navigation ul li a .icon {
+    display: block;
+    min-width: 45px;
+    height: 60px;
+    line-height: 70px;
+    text-align: center
+}
+
+.navigation ul li a .icon ion-icon {
+    font-size: 1.5rem;
+}
+
+.navigation ul li a .title {
+    padding-left: 10px;
+    height: 60px;
+    line-height: 70px;
+    white-space: nowrap; /* 折り返さない */
+}
+
+
+h2 {
+    color: slategray;
+    font-size: 22px;
+    border-bottom: 3px dotted brown;
+    margin-top: 20px;
+    margin-right: 0px;
+    margin-bottom: 20px;
+    margin-left: 0px;
+    padding-top: 5px;
+    padding-right: 5px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+}
+p {
+    line-height: 1.6;
+}
+a:link {
+    color: chocolate;
+}
+a:visited {
+    color: chocolate;
+}
+a:hover {
+    color: aqua;
+}
+a:active {
+    color: blue;
+}
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* すべてのページに適用 - ヘッダー - */
+.logo {
+    margin: 50px 0 40px 0;
+    line-height: 0;
+    text-align: center;
+}
+.nav li {
+    display: inline;
+    list-style-type: none;
+    padding-right: 30px;
+}
+.nav ul {
+    margin: 0 0 0 0;
+    padding: 20px 10px 15px 20px;
+    background-image: url(../images/menu-bg.png);
+    background-repeat: repeat-x;
+}
+.nav a:link {
+    color: cornflowerblue;
+    text-decoration: none;
+}
+.nav a:visited {
+    color: cornflowerblue;
+    text-decoration: none;
+}
+.nav a:hover {
+    color: greenyellow;
+    text-decoration: none;
+}
+.nav a:active {
+    color: green;
+    text-decoration: none;
+}
+
+/* すべてのページに適用 - フッター - */
+.footer {
+    background-image: url(../images/footer-bg.png);
+    background-repeat: no-repeat;
+    margin-top: 30px;
+    padding: 80px 15px 20px 15px;
+    font-size: 12px;
+    color: black;
+}
+
+/* 個別のスタイル */
+/* index.html */
+.keyvisual {
+    margin: 15px 0 0 0;
+}
+.news-item {
+    margin: 0;
+}
+
+/* スマートフォン向けCSS */
+@media (max-width: 767px) {
+    /* 全体 - ナビゲーション */
+    .wrapper {
+        margin: 0 8px;
+    }
+    .logo {
+        margin: 30px 0;
+    }
+    .logo img {
+        width: 200px;
+    }
+}
