@@ -4,43 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>質問フォーム</title>
-</head>
-<body>
-    <div>
-        <h1>質問フォーム</h1>
-    </div>
-    <form action="confirm.php" method="post" name="form" onsubmit="return validate()">
-        <p>お問い合わせ内容をご入力の上、「確認画面へ」ボタンをクリックしてください。</p>
-        <div>
-          <label>お名前<span>必須</span></label>
-          <input type="text" name="name" placeholder="例）山田太郎" value="">
-        </div>
-        <div>
-          <label>ふりがな<span>必須</span></label>
-          <input type="text" name="furigana" placeholder="例）やまだたろう" value=""> </div>
-        <div>
-          <label>メールアドレス<span>必須</span></label>
-          <input type="text" name="email" placeholder="例）guest@example.com" value=""> </div>
-        <div>
-          <label>機種の種類<span>必須</span></label>
-          <input type="radio" name="smartphone_type" value="iOS（Apple）" checked> iOS
-          <input type="radio" name="smartphone_type" value="Android（SONY、Googleなど）"> Android
-        </div>
-        <div>
-          <label>お問い合わせ種別<span>必須</span></label>
-          <select name="item">
-            <option value="">お問い合わせ項目を選択してください</option>
-            <option value="スマホの不具合などに関するご質問">スマホの不具合などに関するご質問</option>
-            <option value="このサイトに関するご意見・ご感想">このサイトに関するご意見・ご感想</option>
-          </select>
-        </div>
-        <div>
-          <label>お問い合わせ内容<span>必須</span></label>
-          <textarea name="content" rows="5" placeholder="お問合せ内容を入力"></textarea>
-        </div>
-        <button type="submit">確認画面へ</button>
-      </form>
-    </div>
     <style type="text/css">
         <!--
         #QandA-2 {
@@ -87,31 +50,64 @@
             margin-left: -21px;
         }
         -->
-        </style>
-        
-        
-        <div id="QandA-2">
-        
-            <h3>スマホに関するよくあるご質問について</h3>
-            <dl>
-                <dt>質問タイトル</dt>
-                <dd>回答内<br>回答内容</dd>
-            </dl>
-            <dl>
-                <dt>質問タイトル</dt>
-                <dd>回答内<br>回答内容</dd>
-            </dl>
-        
-            <h3>このサイトに関するご意見、ご感想について</h3>
-            <dl>
-                <dt>質問タイトル</dt>
-                <dd>回答内<br>回答内容</dd>
-            </dl>
-            <dl>
-                <dt>質問タイトル</dt>
-                <dd>回答内<br>回答内容</dd>
-            </dl>
+    </style>
+</head>
+<body>
+    <div>
+        <h1>質問フォーム</h1>
+    </div>
+    <form action="confirm.php" method="post" name="form" onsubmit="return validate()">
+        <p>お問い合わせ内容をご入力の上、「確認画面へ」ボタンをクリックしてください。</p>
+        <div>
+            <label>お名前<span>必須</span></label>
+            <input type="text" name="name" placeholder="例）山田太郎" value="">
         </div>
-  </body>   
+        <div>
+            <label>ふりがな<span>必須</span></label>
+            <input type="text" name="furigana" placeholder="例）やまだたろう" value=""> </div>
+        <div>
+            <label>メールアドレス<span>必須</span></label>
+            <input type="text" name="email" placeholder="例）guest@example.com" value=""> </div>
+        <div>
+            <label>機種の種類<span>必須</span></label>
+            <input type="radio" name="smartphone_type" value="iOS（Apple）" checked> iOS
+            <input type="radio" name="smartphone_type" value="Android（SONY、Googleなど）"> Android
+        </div>
+        <div>
+            <label>お問い合わせ種別<span>必須</span></label>
+            <select name="item">
+                <option value="">お問い合わせ項目を選択してください</option>
+                <option value="スマホの不具合などに関するご質問">スマホの不具合などに関するご質問</option>
+                <option value="このサイトに関するご意見・ご感想">このサイトに関するご意見・ご感想</option>
+            </select>
+        </div>
+        <div>
+            <label>お問い合わせ内容<span>必須</span></label>
+            <textarea name="content" rows="5" placeholder="お問合せ内容を入力"></textarea>
+        </div>
+        <button type="submit">確認画面へ</button>
+    </form>
+
+    <div id="QandA-2">
+        <h3>スマホに関するよくあるご質問について</h3>
+        <dl>
+            <dt>質問タイトル</dt>
+            <dd>回答内<br>回答内容</dd>
+        </dl>
+        <dl>
+            <dt>質問タイトル</dt>
+            <dd>回答内<br>回答内容</dd>
+        </dl>
+
+        <h3>このサイトに関するご意見、ご感想について</h3>
+        <dl>
+            <dt>質問タイトル</dt>
+            <dd>回答内<br>回答内容</dd>
+        </dl>
+        <dl>
+            <dt>質問タイトル</dt>
+            <dd>回答内<br>回答内容</dd>
+        </dl>
+    </div>
 </body>
 </html>
