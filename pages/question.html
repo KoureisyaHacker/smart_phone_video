@@ -1,92 +1,87 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>質問フォーム</title>
-    <style type="text/css">
-        <!--
-        #QandA-2 {
-            width: 100%;
-            font-family: メイリオ;
-            font-size: 12px; /*全体のフォントサイズ*/
-        }
-        #QandA-2 h3 {
-            font-size: 16px;
-            margin-top: 32px;
-        }
-        #QandA-2 dl {
-            border: 1px solid #ccc;
-        }
-        #QandA-2 dt {
-        font-weight: bold;
-            color: #111;
-            background: #f4f4f4; /* 「Q」タイトルの背景色 */
-            padding: 8px;
-            border-top: 1px solid #ccc;
-            border-bottom: 1px solid #ccc;
-        }
-        #QandA-2 dt:first-child {
-            border-top: none;
-        }
-        #QandA-2 dt:before {
-            content: "Q.";
-            font-weight: bold;
-            margin-right: 8px;
-        }
-        #QandA-2 dd {
-            padding: 16px 16px 24px 30px;
-            margin: 0;
-            line-height: 140%;
-        }
-        #QandA-2 dd:first-line {
-            font-weight: bold;
-            color: #bf0000;
-        }
-        #QandA-2 dd:before {
-            content: "A.";
-            font-weight: bold;
-            margin-right: 8px;
-            margin-left: -21px;
-        }
-        -->
-    </style>
+    <link href="index.css" rel="stylesheet" type="text/css" media="all">
+    <script type="text/javascript" src="index.js"></script>
 </head>
+
 <body>
     <div>
         <h1>質問フォーム</h1>
     </div>
-    <form action="confirm.php" method="post" name="form" onsubmit="return validate()">
-        <p>お問い合わせ内容をご入力の上、「確認画面へ」ボタンをクリックしてください。</p>
-        <div>
-            <label>お名前<span>必須</span></label>
-            <input type="text" name="name" placeholder="例）山田太郎" value="">
+
+    <p>お問い合わせ内容をご入力の上、「確認画面へ」ボタンをクリックしてください。</p>
+    <div>
+        <!-- <label>お名前<span>必須</span></label> -->
+        <div>お名前*</div>
+        <input type="text" name="name" id="nameInput" class="form-control" placeholder="例）山田太郎" value="山田太郎"
+            style="width: 100px;">
+    </div>
+
+    <div style="margin-top: 10px;">
+        <!-- <label>ふりがな<span>必須</span></label> -->
+        <div>ふりがな*</div>
+        <input type="text" name="furigana" id="furiganaInput" class="form-control" placeholder="例）やまだたろう"
+            value="やまだたろう">
+    </div>
+
+    <div style="margin-top: 10px;">
+        <!-- <label>メールアドレス<span>必須</span></label> -->
+        <div>メールアドレス*</div>
+        <input type="text" name="email" id="emailInput" class="form-control" placeholder="例）guest@example.com"
+            value="example.gmail.com">
+    </div>
+
+    <div style="margin-top: 10px;">
+        <!-- <label>機種の種類<span>必須</span></label> -->
+        <div>機種の種類*</div>
+        <label><input type="radio" name="smartphone_type" value="iOS（Apple）" id="checkIos" checked> iOS</label>
+        <label><input type="radio" name="smartphone_type" value="Android（SONY、Googleなど）" id="checkAndroid">
+            Android</label>
+    </div>
+
+    <div style="margin-top: 10px;">
+        <!-- <label>お問い合わせ種別<span>必須</span></label> -->
+        <div>お問い合わせ種別</div>
+        <select name="item" class="form-control" style="height: 30px !important;" id="selectInquiry">
+            <option value="">お問い合わせ項目を選択してください</option>
+            <option value="スマホの不具合などに関するご質問">スマホの不具合などに関するご質問</option>
+            <option value="このサイトに関するご意見・ご感想">このサイトに関するご意見・ご感想</option>
+        </select>
+    </div>
+    <div style="margin-top: 2px;">
+        <!-- <label>お問い合わせ内容<span>必須</span></label> -->
+        <div>お問い合わせ内容*</div>
+        <textarea name="content" rows="5" placeholder="お問合せ内容を入力" style="resize: none; height: 100px;"
+            class="form-control" id="textInquiry"></textarea>
+    </div>
+
+    <div style="margin-top: 40px;">
+        <div href="" class="btn_22 modal-open js-modal-open" id="confirmation_button">確認画面へ</div>
+    </div>
+
+    <!-- モーダル本体 -->
+    <div class="modal js-modal">
+        <div class="modal-container">
+            <!-- モーダルを閉じるボタン -->
+            <div class="modal-close js-modal-close">×</div>
+            <!-- モーダル内部のコンテンツ -->
+            <div class="modal-content">
+                <div style="height: 200px;">
+                    <div id="outputname"></div>
+                    <div id="outputfurigana"></div>
+                    <div id="outputemail"></div>
+                    <div id="outputkind"></div>
+                    <div id="outputinquiry"></div>
+                    <div id="outputtextinquiry"></div>
+                </div>
+            </div>
         </div>
-        <div>
-            <label>ふりがな<span>必須</span></label>
-            <input type="text" name="furigana" placeholder="例）やまだたろう" value=""> </div>
-        <div>
-            <label>メールアドレス<span>必須</span></label>
-            <input type="text" name="email" placeholder="例）guest@example.com" value=""> </div>
-        <div>
-            <label>機種の種類<span>必須</span></label>
-            <input type="radio" name="smartphone_type" value="iOS（Apple）" checked> iOS
-            <input type="radio" name="smartphone_type" value="Android（SONY、Googleなど）"> Android
-        </div>
-        <div>
-            <label>お問い合わせ種別<span>必須</span></label>
-            <select name="item">
-                <option value="">お問い合わせ項目を選択してください</option>
-                <option value="スマホの不具合などに関するご質問">スマホの不具合などに関するご質問</option>
-                <option value="このサイトに関するご意見・ご感想">このサイトに関するご意見・ご感想</option>
-            </select>
-        </div>
-        <div>
-            <label>お問い合わせ内容<span>必須</span></label>
-            <textarea name="content" rows="5" placeholder="お問合せ内容を入力"></textarea>
-        </div>
-        <button type="submit">確認画面へ</button>
-    </form>
+    </div>
 
     <div id="QandA-2">
         <h3>スマホに関するよくあるご質問について</h3>
@@ -110,4 +105,5 @@
         </dl>
     </div>
 </body>
+
 </html>
