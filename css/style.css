@@ -9,14 +9,48 @@ html * {
 }
 body {
     margin: 0 0 0 0;
-    background-color: cornsilk;
+    background-color: whitesmoke;
 }
 .wrapper {
     margin: 0 auto 0 auto;
     max-width: 960px;
 }
 
-nav {
+/* 12月8日の変更 ナビゲーション*/
+nav.head ul li {
+    float: left;
+    width: 19%;
+    box-sizing: border-box;
+    text-align: center;
+    list-style: none;
+}
+nav.head {
+    border-top: 2px solid #16a765;
+    border-bottom: 1px solid #ccc;
+}
+nav.head ul li a:hover {
+    color: #fff;
+    background-color: #16a765;
+    border-bottom: 1px solid #16a765;
+}
+nav.head ul li a {
+    display: block;
+    padding: 15px;
+    border-left: 1px dotted #D6D6D6;
+}
+nav.head ul li:last-child {
+    border-right: 1px dotted #D6D6D6;
+}
+nav.head ul .active a {
+    color: #fff;
+    background-color: #16a765;
+    border-bottom: 1px solid #16a765;
+}
+
+/* 変更終わり */
+
+/* サイドバー */
+nav.side {
     display: block;
     position: fixed;
     background-color: #ffffff;
@@ -28,7 +62,7 @@ nav {
     z-index: 3;
     opacity: 0;
 }
-  
+
 .open nav {
     left: 0;
     opacity: 1;
@@ -61,6 +95,7 @@ nav .inner ul li a {
 nav .inner ul li a:hover {
     background: #e4e4e4;
 }
+
 .toggle-btn {
     display: block;
     position: fixed;
@@ -126,10 +161,77 @@ nav .inner ul li a:hover {
     z-index: 2;
     cursor: pointer;
 }
+/* サイドバー */
 
-h2 {
-    color: slategray;
+/* 12月8日の変更 */
+
+.pr-area {
+    margin-bottom: 30px;
+}
+ 
+.pr-area li {
+    float: left;
+    margin: 0 5px;
+    width: 200px;
+    list-style: none;
+}
+ 
+.pr-area li h2 {
+    border-left: 5px solid #16a765;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0 0 5px 0;
+    padding-left: 10px;
+}
+ 
+.pr-area .shadow {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 5px;
+    box-shadow: 3px 3px 3px #ddd;
+}
+ 
+.pr-area .shadow:hover {
+    opacity: 0.6;
+}
+ 
+.pr-area .trim-img {
+    width: 100%;
+    height: 150px;
+    overflow: hidden;
+}
+ 
+.pr-area p {
     font-size: 22px;
+    line-height: 1.8;
+    padding: 5px;
+}
+ 
+.pr-area a p:hover {
+    color: #16a765;
+    text-decoration: underline;
+}
+
+.pr-area h2.pr-title {
+    margin-top: 20px;
+}
+.pr-area .button {
+    color: #fff;
+    font-size: 18px;
+    padding: 5px 10px;
+    border-radius: 2px;
+    background-color: #16a765;
+}
+a.button:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+/* 変更終わり */
+
+h2#news {
+    color: slategray;
+    font-size: 28px;
     border-bottom: 3px dotted brown;
     margin-top: 20px;
     margin-right: 0px;
@@ -171,28 +273,6 @@ img {
     list-style-type: none;
     padding-right: 30px;
 }
-.nav ul {
-    margin: 0 0 0 0;
-    padding: 20px 10px 15px 20px;
-    background-image: url(../images/menu-bg.png);
-    background-repeat: repeat-x;
-}
-.nav a:link {
-    color: cornflowerblue;
-    text-decoration: none;
-}
-.nav a:visited {
-    color: cornflowerblue;
-    text-decoration: none;
-}
-.nav a:hover {
-    color: greenyellow;
-    text-decoration: none;
-}
-.nav a:active {
-    color: green;
-    text-decoration: none;
-}
 
 /* すべてのページに適用 - フッター - */
 .footer {
@@ -223,6 +303,6 @@ img {
         margin: 30px 0;
     }
     .logo img {
-        width: 200px;
+        width: 400px;
     }
 }
