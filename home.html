@@ -1,0 +1,137 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>スマホ教室へようこそ</title>
+        <link rel="stylesheet" href="css/home.css">
+        <!--マニュフェストファイルの呼び出し-->
+        <link rel="manifest" href="./manifest.json">   
+    </head>
+    <body>
+    <div class="wrapper">
+        <!--ヘッダー-->
+        <header class="header">
+            <nav class="navbar">
+                <h2 class="logo">SMARTPHONE_VIDEO</h2>
+            </nav>
+            
+        </header>
+        <!-- ヘッダー ここまで -->
+
+        <!-- メイン -->
+        <div id="mainvisual">
+            <picture>
+                <source media="(max-width: 600px)" srcset="./images/main-sp.jpg">
+                <img src="images/main-pc.jpg" alt="テキスト">
+            </picture>
+        </div>
+        <div id="navArea">
+            <nav class="side">
+                <div class="inner">
+                    <ul>
+                        <li><a href="home.html">ホームページ</a></li>
+                        <li><a href="pages/guide.html#">操作ガイド</a></li>
+                        <li><a href="pages/video.html">動画案内</a></li>
+                        <li><a href="pages/quiz.html">クイズコーナー</a></li>
+                        <li><a href="pages/question.html">お問い合わせ</a></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="toggle-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        
+            <div id="mask"></div>
+        </div>
+        <script src="js/script.js"></script>
+
+        <h2 id="news">Home</h2>        
+
+        <main>
+            <div class="pr-area">
+                <ul class="clearfix">
+                    <li>
+                        <h2 class="pr-title">操作ガイド</h2> 
+                        <a href="pages/guide.html">
+                            <div class="shadow">
+                                <div class="trim-img"><img src="images/guide.png" alt="" width="100%"></div>
+                            </div>
+                        </a>
+                        <a href="pages/guide.html">
+                            <p>本サービスの操作方法についてご紹介しています。</p>
+                        </a>
+                        <a class="button" href="pages/guide.html">詳細を確認する</a>
+                    </li>
+                    <li>
+                        <h2 class="pr-title">動画案内</h2>
+                        <a href="pages/video.html">
+                            <div class="shadow">
+                                <div class="trim-img">
+                                    <img src="images/video.png" alt="" width="100%">
+                                </div>
+                            </div>
+                        </a>
+                        <a href="pages/video.html">
+                            <p>講座動画についてご紹介しています。</p>
+                        </a>
+                        <a class="button" href="pages/video.html">詳細を確認する</a>
+                    </li>
+                    <li>
+                        <h2 class="pr-title">クイズコーナー</h2> 
+                        <a href="pages/quiz.html">
+                            <div class="shadow">
+                                <div class="trim-img">
+                                    <img src="images/quiz.png" alt="" width="100%">
+                                </div>
+                            </div>
+                        </a>
+                        <a href="pages/quiz.html">
+                            <p>講座の内容に関するクイズに挑戦できます。</p>
+                        </a>
+                        <a class="button" href="pages/quiz.html">詳細を確認する</a>
+                    </li>
+                    <li>
+                        <h2 class="pr-title">お問い合わせ</h2> 
+                        <a href="pages/question.html">
+                            <div class="shadow">
+                                <div class="trim-img">
+                                    <img src="images/information.png" alt="" width="100%">
+                                </div>
+                            </div>
+                        </a>
+                        <a href="pages/question.html"><p>本サービスや動画内容に関するお問い合わせやご質問などお気軽にご連絡下さい。</p></a>
+                        <a class="button" href="pages/question.html" >詳細を確認する</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="keyvisual">
+                <img src="images/key_visual.png" alt="" width="100%">
+            </div>
+
+            <h2 id="news">News</h2>
+            <p class="news-item">未定</p>
+            <p class="news-item">未定</p>
+        </main>
+        <!-- メイン ここまで -->
+        <!-- フッター -->
+        <footer class="footer">
+            <p>&copy;Copyrlight SMARTPHONE_VIDEO. All rights reserved.</p>
+        </footer>
+        <!-- フッター ここまで-->
+    </div>
+    <!--Service Workerの呼び出し-->
+    <script>
+        if ('serviceWorker' in navigator) {
+          navigator.serviceWorker.register('./sw.js').then(registration => {
+            console.log('ServiceWorker registration successful.');
+          }).catch(err => {
+            console.log('ServiceWorker registration failed.');
+          });
+        }
+    </script>
+    </body>
+</html>
