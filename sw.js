@@ -10,11 +10,6 @@ const CACHE_FILES = [
     './',
     './index.html',
     './pages',
-    './pages/guide.html',
-    './pages/question.html',
-    './pages/question.js',
-    './pages/quiz.html',
-    './pages/video.html',
     './images',
     './css'
     //ファイルを追加したらここにパスを追加
