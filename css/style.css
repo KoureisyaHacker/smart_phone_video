@@ -356,7 +356,7 @@ img {
 
 /* すべてのページに適用 - フッター - */
 .footer {
-    background-image: url(../images/footer-bg.png);
+    background-image: url(./images/footer-bg.png);
     background-repeat: no-repeat;
     margin-top: 30px;
     padding: 80px 15px 20px 15px;
