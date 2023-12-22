@@ -8,7 +8,10 @@ const CACHE_VERSION = '2023.11.17.1';
 const CACHE_KEY = CACHE_NAME + '.' + CACHE_VERSION;
 const CACHE_FILES = [
     './',
-    './index.html'
+    './index.html',
+    './pages',
+    './images',
+    './css'
     //ファイルを追加したらここにパスを追加
 ].map(path => new URL(path,registration.scope).pathname);
 

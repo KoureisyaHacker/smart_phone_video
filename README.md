@@ -1,5 +1,7 @@
 # smart_phone_video
 
+**※このリポジトリは学習目的で作成したGitHub PagesのWebページである。**
+
 ## index.html
 使用エンコーディング：utf-8
 
