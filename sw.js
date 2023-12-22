@@ -8,7 +8,7 @@ const CACHE_VERSION = '2023.11.17.1';
 const CACHE_KEY = CACHE_NAME + '.' + CACHE_VERSION;
 const CACHE_FILES = [
     './',
-    './home.html',
+    './index.html',
     './pages',
     './images',
     './css'
