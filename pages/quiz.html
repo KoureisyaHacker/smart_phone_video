@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>スマートフォンクイズ</title>
+    <link href="../css/quiz.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        .quiz-container {
+            margin-bottom: 20px;
+        }
+
+        .choices {
+            margin-top: 10px;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="quiz-container" id="quiz1">
+    <p>1. スマートフォンの画面をロック解除するために使用される一般的な手法は何ですか？</p>
+    <div class="choices">
+        <button onclick="checkAnswer('quiz1', 'a')">a) フィンガープリント認証</button>
+        <button onclick="checkAnswer('quiz1', 'b')">b) 顔認識</button>
+        <button onclick="checkAnswer('quiz1', 'c')">c) パターンロック</button>
+        <button onclick="checkAnswer('quiz1', 'd')">d) すべての答えが正しい</button>
+    </div>
+</div>
+
+<div class="quiz-container" id="quiz2">
+    <p>2. スマートフォンで画面キャプチャ（スクリーンショット）を撮るにはどの操作が必要ですか？</p>
+    <div class="choices">
+        <button onclick="checkAnswer('quiz2', 'a')">a) 音量ボタンを同時に押す</button>
+        <button onclick="checkAnswer('quiz2', 'b')">b) 電源ボタンとホームボタンを同時に押す</button>
+        <button onclick="checkAnswer('quiz2', 'c')">c) 画面をダブルタップ</button>
+        <button onclick="checkAnswer('quiz2', 'd')">d) タッチスクリーンを長押し</button>
+    </div>
+</div>
+
+<!-- 他のクイズも同様に続ける -->
+
+<div id="result"></div>
+
+<script>
+    function checkAnswer(quizId, selectedOption) {
+        // クイズごとに正しい答えを設定
+        const correctAnswers = {
+            quiz1: 'c',
+            quiz2: 'b',
+            // 他のクイズも同様に追加
+        };
+
+        const resultContainer = document.getElementById('result');
+        const selectedQuiz = document.getElementById(quizId);
+        const selectedChoice = selectedQuiz.querySelector(`button[data-value="${selectedOption}"]`);
+
+        if (selectedOption === correctAnswers[quizId]) {
+            resultContainer.innerText = '正解です！';
+            resultContainer.style.color = 'green';
+        } else {
+            resultContainer.innerText = '不正解です。正しい答えは ' + correctAnswers[quizId].toUpperCase() + ' です。';
+            resultContainer.style.color = 'red';
+        }
+
+        // 選択された選択肢をハイライトする
+        const choices = selectedQuiz.querySelectorAll('.choices button');
+        choices.forEach(choice => {
+            choice.disabled = true;
+            choice.style.backgroundColor = choice.dataset.value === correctAnswers[quizId] ? 'lightgreen' : 'lightcoral';
+        });
+    }
+</script>
+
+</body>
+</html>
