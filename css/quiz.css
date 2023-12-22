@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>スマートフォンクイズ</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        .quiz-container {
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .quiz-container p {
+            margin: 0;
+            font-weight: bold;
+        }
+
+        .choices {
+            margin-top: 10px;
+        }
+
+        .choices button {
+            display: block;
+            width: 100%;
+            margin-bottom: 5px;
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            background-color: #f9f9f9;
+            cursor: pointer;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        #result.green {
+            color: green;
+        }
+
+        #result.red {
+            color: red;
+        }
+
+        .choices button[disabled] {
+            cursor: not-allowed;
+        }
+
+        .choices button[data-value="c"][disabled] {
+            background-color: lightgreen;
+        }
+
+        .choices button[data-value="b"][disabled] {
+            background-color: lightcoral;
+        }
+    </style>
+</head>
+<body>
+
+<div class="quiz-container" id="quiz1">
+    <p>1. スマートフォンの画面をロック解除するために使用される一般的な手法は何ですか？</p>
+    <div class="choices">
+        <button onclick="checkAnswer('quiz1', 'a')" data-value="a">a) フィンガープリント認証</button>
+        <button onclick="checkAnswer('quiz1', 'b')" data-value="b">b) 顔認識</button>
+        <button onclick="checkAnswer('quiz1', 'c')" data-value="c">c) パターンロック</button>
+        <button onclick="checkAnswer('quiz1', 'd')" data-value="d">d) すべての答えが正しい</button>
+    </div>
+</div>
+
+<div class="quiz-container" id="quiz2">
+    <p>2. スマートフォンで画面キャプチャ（スクリーンショット）を撮るにはどの操作が必要ですか？</p>
+    <div class="choices">
+        <button onclick="checkAnswer('quiz2', 'a')" data-value="a">a) 音量ボタンを同時に押す</button>
+        <button onclick="checkAnswer('quiz2', 'b')" data-value="b">b) 電源ボタンとホームボタンを同時に押す</button>
+        <button onclick="checkAnswer('quiz2', 'c')" data-value="c">c) 画面をダブルタップ</button>
+        <button onclick="checkAnswer('quiz2', 'd')" data-value="d">d) タッチスクリーンを長押し</button>
+    </div>
+</div>
+
+<div id="result"></div>
+
+<script>
+    function checkAnswer(quizId, selectedOption) {
+        // クイズごとに正しい答えを設定
+        const correctAnswers = {
+            quiz1: 'c',
+            quiz2: 'b',
+            // 他のクイズも同様に追加
+        };
+
+        const resultContainer = document.getElementById('result');
+        const selectedQuiz = document.getElementById(quizId);
+        const selectedChoice = selectedQuiz.querySelector(`button[data-value="${selectedOption}"]`);
+
+        if (selectedOption === correctAnswers[quizId]) {
+            resultContainer.innerText = '正解です！';
+            resultContainer.className = 'green';
+        } else {
+            resultContainer.innerText = '不正解です。正しい答えは ' + correctAnswers[quizId].toUpperCase() + ' です。';
+            resultContainer.className = 'red';
+        }
+
+        // 選択された選択肢をハイライトする
+        const choices = selectedQuiz.querySelectorAll('.choices button');
+        choices.forEach(choice => {
+            choice.disabled = true;
+            choice.style.backgroundColor = choice.dataset.value === correctAnswers[quizId] ? 'lightgreen' : 'lightcoral';
+        });
+    }
+</script>
+
+</body>
+</html>
